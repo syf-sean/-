@@ -31,7 +31,7 @@ for i in json_data['data']['top_article']:
     if i['article_rec']:
         for j in i['article_rec']:
             tj = timestamp_to_beijing(j['ctime'])
-            temp += f" 相关报道如下 {j['name']} {tj}: {j['brief']}"
+            temp += f" 引申的相关报道如下 {j['name']} {tj}: {j['brief']}"
     temp = temp.replace('\n', ' ').replace('\r', ' ').strip()
     r.append(temp)
 
@@ -52,7 +52,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 
 calendar_div = soup.select_one('div.o-h.home-invest-kalendar-item')
 if calendar_div:
-    for _ in range(16):  # 包括自己和 5 个兄弟节点
+    for _ in range(16): 
         raw_text = calendar_div.get_text(strip=True, separator="\n")
         lines = [line for line in raw_text.splitlines() if '事件' not in line and '数据' not in line and line.strip()]
         if len(lines) >= 2:
