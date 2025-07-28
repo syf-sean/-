@@ -35,7 +35,15 @@ for i in json_data['data']['top_article']:
     temp = temp.replace('\n', ' ').replace('\r', ' ').strip()
     r.append(temp)
 
-r.append('投资日历（今日及未来事件新闻)')
+with open("财联社新闻.csv", mode="w", encoding="utf-8-sig", newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(["新闻内容"])
+    for line in r:
+        writer.writerow([line])
+
+print("已保存到 '财联社新闻.csv'")
+
+r = []
 #今日及未来消息
 url = "https://www.cls.cn/"
 response = requests.get(url, headers=headers)
@@ -62,11 +70,11 @@ else:
     print("未找到投资日历部分")
 
 
-# 写入 CSV
-with open("财联社新闻.csv", mode="w", encoding="utf-8-sig", newline='') as f:
+
+with open("财联社投资日历.csv", mode="w", encoding="utf-8-sig", newline='') as f:
     writer = csv.writer(f)
     writer.writerow(["新闻内容"])
     for line in r:
         writer.writerow([line])
 
-print("✅ 已保存到 '财联社新闻.csv'")
+print("已保存到 '财联社投资日历.csv'")
