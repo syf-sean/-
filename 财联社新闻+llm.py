@@ -48,13 +48,13 @@ prompt_template = (
     "投资日历如下：\n{event}"
 )
 
-with open("财联社新闻.csv", "r", encoding="utf-8") as f:
+with open("数据/财联社新闻.csv", "r", encoding="utf-8") as f:
     reader = csv.reader(f)
     rows = [row[0] for row in reader if row]  # 读取每一行的第一个单元格，并排除空行
 
 news = "\n".join(rows)
 
-with open("财联社投资日历.csv", "r", encoding="utf-8") as f:
+with open("数据/财联社投资日历.csv", "r", encoding="utf-8") as f:
     reader = csv.reader(f)
     rows = [row[0] for row in reader if row]  # 读取每一行的第一个单元格，并排除空行
 
