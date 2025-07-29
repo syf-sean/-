@@ -47,13 +47,13 @@ prompt_template = (
     "同花顺财经要闻如下：\n{shun_news}"
 )
 
-with open("财联社新闻.csv", "r", encoding="utf-8") as f:
+with open("数据/财联社新闻.csv", "r", encoding="utf-8") as f:
     reader = csv.reader(f)
     rows = [row[0] for row in reader if row]
 
 cai_news = "\n".join(rows)
 
-with open("同花顺财经要闻.csv", "r", encoding="utf-8") as f:
+with open("数据/同花顺财经要闻.csv", "r", encoding="utf-8") as f:
     reader = csv.reader(f)
     rows = [row[0] for row in reader if row]
 
