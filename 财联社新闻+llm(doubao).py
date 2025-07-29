@@ -91,13 +91,13 @@ prompt_template = (
 )
 
 
-with open("财联社新闻clean.csv", "r", encoding="utf-8") as f:
+with open("数据/财联社新闻clean.csv", "r", encoding="utf-8") as f:
     reader = csv.reader(f)
     rows = [row[0] for row in reader if row]
 
 news = "\n".join(rows)
 
-with open("财联社投资日历clean.csv", "r", encoding="utf-8") as f:
+with open("数据/财联社投资日历clean.csv", "r", encoding="utf-8") as f:
     reader = csv.reader(f)
     rows = [row[0] for row in reader if row]
 
