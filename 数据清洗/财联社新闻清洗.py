@@ -3,7 +3,7 @@ import csv
 import ast
 
 client = OpenAI(
-    api_key="48d27087-6f8d-473a-b37a-f9b349f94d81",
+    api_key=os.environ.get("DouBao_API_KEY"),
     base_url="https://ark.cn-beijing.volces.com/api/v3",
     timeout=1800,
 )
@@ -83,3 +83,4 @@ try:
             writer.writerow([line])
 except Exception as e:
     print("写入 CSV 文件时出错：", e)
+
